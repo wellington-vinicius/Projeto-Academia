@@ -1,0 +1,335 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.75),
+            rgba(0, 0, 0, 0.75)
+        ),
+        url("https://wallpaperaccess.com/full/4343205.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    color: rgb(0, 0, 0);
+    min-height: 100vh;
+}
+
+/* HEADER */
+
+header {
+    height: 80px;
+    background: #0d0d0d;
+    border-bottom: 3px solid #c1121f;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 35px;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #e63946;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.usuario {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.usuario a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* LAYOUT */
+
+.layout {
+    display: flex;
+}
+
+/* MENU LATERAL */
+
+aside {
+    width: 260px;
+    min-height: calc(100vh - 80px);
+    background: #111;
+    padding: 30px 20px;
+    border-right: 2px solid #c1121f;
+}
+
+aside a {
+    display: block;
+    padding: 16px 18px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: white;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+aside a.ativo,
+aside a:hover {
+    background: #c1121f;
+    color: white;
+}
+
+/* CONTEÚDO */
+
+main {
+    flex: 1;
+    padding: 35px;
+}
+
+.topo-pagina {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 25px;
+}
+
+.topo-pagina h1 {
+    font-size: 34px;
+    margin-bottom: 8px;
+}
+
+.topo-pagina p {
+    color: #666;
+}
+
+/* BANNER */
+
+.banner {
+    background: linear-gradient(135deg, #c1121f, #0d0d0d);
+    color: white;
+    padding: 25px;
+    border-radius: 14px;
+    width: 330px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+/* FILTROS */
+
+.filtros {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.filtros input {
+    width: 350px;
+    padding: 14px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.filtros button {
+    padding: 14px 25px;
+    border: none;
+    border-radius: 10px;
+    background: #c1121f;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.filtros button:hover {
+    background: #e63946;
+}
+
+/* DASHBOARD */
+
+.conteudo-dashboard {
+    display: grid;
+    grid-template-columns: 1fr 330px;
+    gap: 30px;
+}
+
+/* CARDS */
+
+.card-aula {
+    background: white;
+    border-radius: 14px;
+    padding: 18px;
+    margin-bottom: 18px;
+    display: grid;
+    grid-template-columns: 210px 1fr 170px;
+    gap: 20px;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.imagem-aula {
+    height: 130px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #c1121f, #0d0d0d);
+}
+
+.info-aula h2 {
+    margin-bottom: 10px;
+}
+
+.info-aula p {
+    color: #444;
+    margin-bottom: 15px;
+}
+
+.tags span {
+    background: #ffe5e5;
+    color: #c1121f;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    margin-right: 8px;
+}
+
+/* HORÁRIOS */
+
+.horario {
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+}
+
+.horario p {
+    margin: 10px 0;
+}
+
+.horario button,
+.card-proxima button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background: #c1121f;
+    color: white;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.horario button:hover,
+.card-proxima button:hover {
+    background: #e63946;
+}
+
+/* PAINEL DIREITO */
+
+.painel-direito {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.card-progresso,
+.card-proxima,
+.card-conquistas {
+    background: white;
+    border-radius: 14px;
+    padding: 22px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+/* PROGRESSO */
+
+.circulo {
+    width: 110px;
+    height: 110px;
+    border: 10px solid #c1121f;
+    color: #c1121f;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+    font-weight: bold;
+    margin: 20px auto;
+}
+
+/* LOGIN */
+
+.login-body {
+    background: linear-gradient(
+        135deg,
+        #000000,
+        #1a1a1a,
+        #c1121f
+    );
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-card {
+    width: 380px;
+    background: white;
+    padding: 40px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+
+.login-card h1 {
+    color: #c1121f;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.login-card p {
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.login-card input {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+.login-card input:focus {
+    outline: none;
+    border-color: #c1121f;
+}
+
+.login-card button {
+    width: 100%;
+    padding: 14px;
+    background: #c1121f;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-card button:hover {
+    background: #e63946;
+}
+
+.erro {
+    background: #ffe1e1;
+    color: #c1121f;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}

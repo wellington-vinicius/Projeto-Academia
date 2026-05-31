@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Heavy Reps - Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;900&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        .login-body {
+            background: #0c0c0e;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Barlow', sans-serif;
+        }
+
+        .login-card {
+            display: flex;
+            width: 700px;
+            min-height: 460px;
+            background: transparent;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+            text-align: left;
+            padding: 0;
+        }
+
+        .login-esquerda {
+            width: 220px;
+            flex-shrink: 0;
+            background: #c1121f;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 28px 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-esquerda::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(0,0,0,0.08) 2px,
+                rgba(0,0,0,0.08) 4px
+            );
+        }
+
+        .login-numero {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 130px;
+            font-weight: 900;
+            color: rgba(0,0,0,0.15);
+            line-height: 1;
+            position: absolute;
+            top: 5px;
+            left: -10px;
+            letter-spacing: -4px;
+        }
+
+        .login-tags {
+            position: relative;
+            z-index: 1;
+        }
+
+        .login-tag {
+            display: block;
+            width: fit-content;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.55);
+            border: 0.5px solid rgba(255,255,255,0.25);
+            padding: 4px 8px;
+            border-radius: 2px;
+            margin-bottom: 8px;
+        }
+
+        .login-frase {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: white;
+            line-height: 1.2;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 10px;
+        }
+
+        .login-direita {
+            flex: 1;
+            padding: 44px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: #0c0c0e;
+        }
+
+        .login-card h1 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 36px;
+            font-weight: 900;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #f0f0f0;
+            margin-bottom: 4px;
+            background: none;
+            -webkit-text-fill-color: unset;
+        }
+
+        .login-card h1 span {
+            color: #c1121f;
+        }
+
+        .login-card > .login-direita > p {
+            font-size: 11px;
+            font-weight: 400;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #555;
+            margin-bottom: 28px;
+        }
+
+        .login-barra {
+            height: 3px;
+            background: #c1121f;
+            width: 32px;
+            margin-bottom: 28px;
+            border-radius: 1px;
+        }
+
+        .login-campo {
+            margin-bottom: 22px;
+        }
+
+        .login-campo label {
+            display: block;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #555;
+            margin-bottom: 6px;
+        }
+
+        .login-card input[type="email"],
+        .login-card input[type="password"] {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 1.5px solid #2a2a2e;
+            padding: 10px 0;
+            color: #f0f0f0;
+            font-family: 'Barlow', sans-serif;
+            font-size: 15px;
+            font-weight: 300;
+            outline: none;
+            transition: border-color 0.25s;
+            box-sizing: border-box;
+            border-radius: 0;
+            margin-bottom: 0;
+        }
+
+        .login-card input:focus {
+            border-bottom-color: #c1121f;
+        }
+
+        .login-card input::placeholder { color: #333; }
+
+        .login-card button {
+            width: 100%;
+            padding: 13px;
+            background: #c1121f;
+            border: none;
+            color: white;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 2px;
+            transition: background 0.2s;
+            margin-top: 8px;
+        }
+
+        .login-card button:hover { background: #e63946; }
+
+        .login-hint {
+            font-size: 11px;
+            color: #333;
+            margin-top: 16px;
+            letter-spacing: 0.3px;
+        }
+
+        .erro {
+            background: rgba(193,18,31,0.15);
+            border-left: 2px solid #c1121f;
+            border-radius: 0;
+            padding: 10px 14px;
+            color: #f0a0a8;
+            font-size: 13px;
+            margin-bottom: 18px;
+        }
+    </style>
+</head>
+<body class="login-body">
+
+    <div class="login-card">
+        <div class="login-esquerda">
+            <div class="login-numero">1</div>
+            <div class="login-tags">
+                <span class="login-tag">Alta performance</span>
+                <span class="login-tag">Competição pro</span>
+                <p class="login-frase">Discipline<br>Creates<br>Champions.</p>
+            </div>
+        </div>
+
+        <div class="login-direita">
+            <h1>Heavy<span>Reps</span></h1>
+            <p>Portal do Atleta</p>
+            <div class="login-barra"></div>
+
+            {% if erro %}
+                <div class="erro">{{ erro }}</div>
+            {% endif %}
+
+            <form method="POST">
+                <div class="login-campo">
+                    <label>E-mail</label>
+                    <input type="email" name="email" placeholder="seu@email.com" required>
+                </div>
+                <div class="login-campo">
+                    <label>Senha</label>
+                    <input type="password" name="senha" placeholder="••••••••" required>
+                </div>
+                <button type="submit">Acessar</button>
+            </form>
+
+            <p class="login-hint">Teste: joao@email.com · 123</p>
+        </div>
+    </div>
+
+</body>
+</html>

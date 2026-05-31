@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+
+<div class="topo-pagina">
+    <div>
+        <h1>Treinos disponíveis</h1>
+        <p>Acesse seu protocolo de treino e continue sua evolução rumo ao próximo nível.</p>
+    </div>
+
+    <div class="banner">
+        <h3>Bem-vindo de volta, atleta!</h3>
+        <p>Cada treino te aproxima do seu objetivo.
+Mantenha a disciplina e confie no processo..</p>
+    </div>
+</div>
+
+<form class="filtros" method="GET">
+    <input type="text" name="busca" placeholder="Buscar aulas...">
+    <button type="submit">Filtrar</button>
+</form>
+
+<div class="conteudo-dashboard">
+
+    <section class="lista-aulas">
+        {% for aula in aulas %}
+        <div class="card-aula">
+            <div class="imagem-aula"></div>
+
+            <div class="info-aula">
+                <h2>{{ aula[1] }}</h2>
+                <p>{{ aula[2] }}</p>
+
+                <div class="tags">
+                    <span>{{ aula[4] }}</span>
+                    <span>{{ aula[5] }}</span>
+                </div>
+            </div>
+
+            <div class="horario">
+                <strong>{{ aula[6] }}</strong>
+                <p>{{ aula[7] }}</p>
+                <button>Assistir aula</button>
+            </div>
+        </div>
+        {% endfor %}
+    </section>
+
+    <aside class="painel-direito">
+        <div class="card-progresso">
+            <h3>PROGRESSO DA TEMPORADA</h3>
+            <div class="circulo">89%</div>
+            <strong>Muito bem!</strong>
+            <p>Preparação para competição em andamento.
+Excelente evolução física.</p>
+        </div>
+
+        <div class="card-proxima">
+            <h3>PRÓXIMO TREINO</h3>
+            <p><strong>Costas e Bíceps</strong></p>
+            <p>Hoje - 19:00</p>
+            <p>Objetivo:
+Densidade muscular e largura dorsal.</p>
+            <button>Entrar na aula</button>
+        </div>
+
+        <div class="card-conquistas">
+            <h3>Conquistas recentes</h3>
+            <p>🏆 Primeiro Check-in Aprovado
+</p>
+            <p>🔥 15 Dias de Consistência</p>
+            <p>💪 Novo Recorde de Carga</p>
+            <p>📈 Evolução Física Confirmada</p>
+            <p>🥇 Atleta Elite Heavy Reps</p>
+        </div>
+    </aside>
+
+</div>
+
+{% endblock %}
